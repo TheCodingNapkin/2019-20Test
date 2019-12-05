@@ -25,28 +25,33 @@ import frc.robot.commands.Teleop; // imports the Teleop.java command class
 public class DriveTrain extends Subsystem {
   public Subsystem(){ // initializes the constructor for this subsystem. 
     // By default sets the name of the constructor to the name of the class, but can also be changed using Subsystem("DriveTrain") or public DriveTrain()
+    // Side inversion
+    front_left.setInverted(true);
+    back_left.setInverted(true); 
+    /* Because the two sides are facing opposite directions, one's clockwise is the other's counter-clockwise. 
+       So, it is necessary to invert one side for forward motion to be achieved */ 
   }
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
+  // Motor Controller Initialization
   WPI_TalonSRX front_left  = new WPI_TalonSRX(1); // The number is the ID of the motor 
   WPI_TalonSRX front_right = new WPI_TalonSRX(2);
   // WPI_TalonSRX is an API instance that is the motor control object from ctr-electronics
-
   /* The regular FRC-supported speedcontrollers are declared using the SpeedController object, but the Talon SRX is seperate from 
   CTRE, but because it is WPI-compatible, it can still be included in speed controller groups*/ 
-  
   WPI_TalonSRX back_left   = new WPI_TalonSRX(3);
   WPI_TalonSRX back_right  = new WPI_TalonSRX(4);
+  
+  // Speed controller groups 
   SpeedControllerGroup left = new SpeedControllerGroup(front_left, back_left);
   SpeedControllerGroup right = new SpeedControllerGroup(front_right, back_right);
   // SpeedControllerGroup is a way of grouping together microcontrollers. These groups can be told to run as a group of operations
-
+  
+  // Drive setting 
   DifferentialDrive diffDrive = new DifferentialDrive(left, right);
   // DIfferentialDrive is a collection of motor controls used to drive. 
 
   // Method that drives the robot 
   public void drive(double x_axis, double y_axis) { 
-    diffDrive.arcadeDrive​(x_axis, y_axis);
+    diffDrive.arcadeDrive(x_axis, y_axis);
   }
   /* drive() is a method that takes in amounts to move by and moves the controls by those inputs */
   // arcadeDrive() is a method in the API that is one method of controlling motors, similar to that of an arcade joystick
