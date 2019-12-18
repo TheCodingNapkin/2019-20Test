@@ -49,11 +49,19 @@ public class OI {
   }
     
   public double get_x(){ // x buffer
-    if (Math.abs(stick.getX()) > buffer){
-      return -stick.getX() * speed; // Negated, as the robot was turning left when supposed to go right and vice versa
+    if (xState == 0){
+       if (Math.abs(stick.getX()) > buffer){
+        return -stick.getX() * speed; // Negated, as the robot was turning left when supposed to go right and vice versa
+       else {
+          return 0;
+       }
     else {
-      return 0; 
-    }
+      if (Math.abs(stick.getTwist()) > buffer){
+        return -stick.getTwist() * speed;
+      }
+      else {
+        return 0;
+      }
   }
 
   // There are a few additional built in buttons you can use. Additionally,
