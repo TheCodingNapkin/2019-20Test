@@ -30,16 +30,17 @@ public class OI {
   // Buffers 
   double buffer = 0.2; // Joystick must be pushed to at least this percentage on a given axis
   double speed = 0.8; // the multiple by which the speed at which the robot travels is multiplied by 
-  public double get_x(){ // x buffer
-    if (Math.abs(stick.getX()) > buffer){
-      return -stick.getX() * speed; // Negated, as the robot was turning left when supposed to go right and vice versa
+  public double get_y(){ // y buffer
+    if (Math.abs(stick.getY()) > buffer){
+      return stick.getY() * speed; 
     else {
       return 0; 
     }
   }
-  public double get_y(){ // y buffer
-    if (Math.abs(stick.getY()) > buffer){
-      return stick.getY() * speed; 
+ 
+  public double get_x(){ // x buffer
+    if (Math.abs(stick.getX()) > buffer){
+      return -stick.getX() * speed; // Negated, as the robot was turning left when supposed to go right and vice versa
     else {
       return 0; 
     }
