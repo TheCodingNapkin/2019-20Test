@@ -26,7 +26,7 @@ public class Teleop extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    // Called the first time the command is called after being started 
+    Robot.m_oi.xState = 0;
   }
 
   // Called repeatedly when this Command is scheduled to run
