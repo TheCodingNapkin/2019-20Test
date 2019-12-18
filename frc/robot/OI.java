@@ -7,7 +7,8 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Joystick; // https://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/Joystick.html
+import edu.wpi.first.wpilibj.Joystick;// https://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/Joystick.html
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import java.lang.Math; // absolute value 
 
