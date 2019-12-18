@@ -38,6 +38,16 @@ public class OI {
     }
   }
  
+  Button button = new JoystickButton(stick, 1);
+    
+  int xState = 0;
+  
+  public void isButtonPressed(){
+    if (button.get()){
+      xState = -Xstate + 1;
+    }
+  }
+    
   public double get_x(){ // x buffer
     if (Math.abs(stick.getX()) > buffer){
       return -stick.getX() * speed; // Negated, as the robot was turning left when supposed to go right and vice versa
