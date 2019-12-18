@@ -40,7 +40,7 @@ public class OI {
  
   Button button = new JoystickButton(stick, 1);
     
-  int xState = 0;
+  public int xState; 
   
   public void isButtonPressed(){
     if (button.get()){
