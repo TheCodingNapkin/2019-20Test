@@ -33,6 +33,7 @@ public class Teleop extends Command {
   @Override
   protected void execute() { // runs repeatedly until command is cancelled or finished 
     Robot.drive_train.drive(Robot.m_oi.get_x(), Robot.m_oi.get_y()); // calls the drive() function from the drive_train instance of DriveTrain
+    Robot.m_oi.isButtonPressed();
     // m_oi is the Robot.java instance of OI.java, get_x and y is a method in OI.java 
   }
 
